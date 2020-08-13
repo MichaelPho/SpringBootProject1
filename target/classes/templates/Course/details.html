@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Maintenance application</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+					 
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="navbar-toggler-icon"></span>
+				</button> <a class="navbar-brand" href="http://localhost:8081/">Book Maintenance application</a>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							 <a class="nav-link" href="/book.html">Book <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							 <a class="nav-link" href="/Customer.html">Customer</a>
+						</li>
+						<li class="nav-item">
+							 <a class="nav-link" href="/transaction.html">transaction <span class="sr-only">(current)</span></a>
+						</li>
+						
+					</ul>
+
+						<ul class="navbar-nav ml-md-auto">
+							<form class="form-inline" method="post" action="/account/search.html">
+								<input name="search" class="form-control mr-sm-2" type="text"
+									placeholder="Enter Keywords" />
+								<button class="btn btn-primary my-2 my-sm-0" type="submit">
+									Search for Books</button>
+							</form>
+						</ul>
+					</div>
+				</nav>
+				<div class="container" style="padding: 50px;">
+
+					<h5>Book Details</h5><br>
+					<form th:action="@{/course.html/update(courseCode=${course.CourseCode})}" 
+					method="post">
+						<table class="table table-hover">
+							<tbody>
+								<tr>
+									<th scope="row">Course Id:</th>
+									<td><input name="courseCode" type="number" class="form-control" value="${course.CourseCode}" editable="false" readonly/></td>
+								</tr>
+								<tr>
+									<th scope="row">Course Name</th>
+									<td><input name="courseName" type="text" class="form-control" required/></td>
+								</tr>
+								<tr>
+								
+									<th scope="row">Duration:</th>
+									<td><input name="duration" type="number" min="7" max="14"class="form-control" value="7" required/></td>
+								</tr>
+								<tr>
+								<th scope="row">Semester:</th>
+								<td><select name="semester">
+	           						 	<option value = "Winter 2020">Winter 2020</option>
+               							<option value = "Summer 2020">Summer 2020</option>
+               							<option value = "Fall 2020"> Fall 2020</option>
+             					</select>
+            						</td>
+            							 </tr>		
+								<tr>
+									<th scope="row">Professor Name:</th>
+									<td><input name="professorName" type="text" class="form-control" required/></td>
+								</tr>
+								
+								<tr>
+								
+									<th scope="row">Course Fee:</th>
+									<td><input name="courseFee" type="number" class="form-control" required/></td>
+								</tr>
+								<tr>
+								
+									<th scope="row">Credit Hours:</th>
+									<td><input name="creditHours" type="number" class="form-control" required/></td>
+								</tr>
+								
+								
+							</tbody>
+									
+							</tbody>
+						</table>
+								<button class="btn btn-primary" type="submit">Update</button>
+					</form>
+				</div>
+			</div>
+</body>
+</html>
